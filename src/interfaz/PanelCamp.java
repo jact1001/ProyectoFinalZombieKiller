@@ -5,19 +5,17 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import java.awt.event.WindowEvent;
-import java.lang.invoke.LambdaMetafactory;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.Formatter;
 
 //@SuppressWarnings("serial")
 import javax.swing.*;
-import javax.swing.GroupLayout.Alignment;
-import javax.tools.Tool;
 
-import mundo.*;
+import mundo.armas.Arma;
+import mundo.armas.ArmaDeFuego;
+import mundo.atacantes.Boss;
+import mundo.atacantes.Zombie;
+import mundo.personaje.Personaje;
+import mundo.utils.Params;
 
 public class PanelCamp extends JPanel implements MouseListener, KeyListener {
 
@@ -182,7 +180,7 @@ public class PanelCamp extends JPanel implements MouseListener, KeyListener {
 			fondo = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/Fondo/boss_ataca.png"));
 			arg0.drawImage(fondo, 0, 0, null);
 		}
-		if (principal.getEstadoPartida() == SurvivorCamp.INICIANDO_RONDA) {
+		if (principal.getEstadoPartida() == Params.INICIANDO_RONDA) {
 			fondo = Toolkit.getDefaultToolkit()
 					.getImage(getClass().getResource("/img/Palabras/ronda" + principal.darRondaActual() + ".png"));
 			arg0.drawImage(fondo, 100, 300, null);
@@ -299,13 +297,13 @@ public class PanelCamp extends JPanel implements MouseListener, KeyListener {
 
 	@Override
 	public void mouseExited(MouseEvent arg0) {
-		if (principal.getEstadoPartida() == SurvivorCamp.EN_CURSO)
+		if (principal.getEstadoPartida() == Params.EN_CURSO)
 			principal.pausarJuego();
 	}
 
 	@Override
 	public void mousePressed(MouseEvent arg0) {
-		if (principal.getEstadoPartida() == SurvivorCamp.EN_CURSO) {
+		if (principal.getEstadoPartida() == Params.EN_CURSO) {
 			if (arg0.getButton() == MouseEvent.BUTTON1) {
 				int x = arg0.getX();
 				int y = arg0.getY();
@@ -337,7 +335,7 @@ public class PanelCamp extends JPanel implements MouseListener, KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		if (principal.getEstadoPartida() == SurvivorCamp.EN_CURSO) {
+		if (principal.getEstadoPartida() == Params.EN_CURSO) {
 		if (e.getKeyCode() == KeyEvent.VK_ESCAPE || e.getKeyCode() == KeyEvent.VK_ALT || e.getKeyCode() == KeyEvent.VK_P)
 				principal.pausarJuego();
 			else if (e.getKeyCode() == KeyEvent.VK_C) {

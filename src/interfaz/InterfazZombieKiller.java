@@ -16,61 +16,30 @@ import hilo.HiloBoss;
 import hilo.HiloEnemigo;
 import hilo.HiloGeneradorDeZombies;
 import hilo.HiloSonido;
-import mundo.ArmaDeFuego;
-import mundo.Boss;
-import mundo.NombreInvalidoException;
-import mundo.Puntaje;
-import mundo.Remington;
-import mundo.SurvivorCamp;
-import mundo.Zombie;
+import mundo.armas.ArmaDeFuego;
+import mundo.atacantes.Boss;
+import mundo.utils.NombreInvalidoException;
+import mundo.puntajes.Puntaje;
+import mundo.armas.Remington;
+import mundo.atacantes.Zombie;
+import mundo.campo.ISurvivorCamp;
+import mundo.campo.SurvivorCamp;
+import mundo.utils.Params;
 
 public class InterfazZombieKiller extends JFrame {
 
-	/**
-	 * Hilo que reproduce el sonido de los zombies
-	 */
 	private HiloSonido sonidoFondo;
-	/**
-	 * Campo de juego que contiene a todo el mundo
-	 */
-	private SurvivorCamp campo;
-	/**
-	 * Arma que el jugador tiene equipada
-	 */
+	private ISurvivorCamp campo;
 	private ArmaDeFuego armaActual;
-	/**
-	 * Panel del menú principal cualquier botón muestra otro panel
-	 * representatitvo a él
-	 */
+
 	private PanelMenu panelMenu;
-	/**
-	 * Panel del campo de juego
-	 */
 	private PanelCamp panelCampo;
-	/**
-	 * Panel que muestra las instrucciones de juego Muestra las estadísticas de
-	 * las armas
-	 */
 	private PanelComoJugar panelComoJugar;
-	/**
-	 * Panel que muestra los puntajes de los jugadores
-	 */
 	private PanelPuntajes panelPuntajes;
-	/**
-	 * Panel que muestra los créditos de las personas que participaron
-	 */
 	private PanelCreditos panelCreditos;
-	/**
-	 * Cursor de la mira de la pistola
-	 */
+
 	private Cursor miraM1911;
-	/**
-	 * Cursor de la mira de la escopeta
-	 */
 	private Cursor miraRemington;
-	/**
-	 * Cursor temporal del cuchillo
-	 */
 	private Cursor cursorCuchillo;
 
 	/**
@@ -80,9 +49,9 @@ public class InterfazZombieKiller extends JFrame {
 	public InterfazZombieKiller() {
 		BorderLayout custom = new BorderLayout();
 		setLayout(custom);
-		ImageIcon laterales = new ImageIcon(getClass().getResource("/img/Fondo/iconozombie.png"));
-		ImageIcon fondo = new ImageIcon(getClass().getResource("/img/Fondo/fondoMenu.png"));
 
+		new ImageIcon(getClass().getResource("/img/Fondo/iconozombie.png"));
+		new ImageIcon(getClass().getResource("/img/Fondo/fondoMenu.png"));
 		ImageIcon cursorP = new ImageIcon(getClass().getResource("/img/Fondo/mira1p.png"));
 		miraM1911 = Toolkit.getDefaultToolkit().createCustomCursor(cursorP.getImage(), new Point(16, 16), "C");
 		cursorP = new ImageIcon(getClass().getResource("/img/Fondo/mira1.png"));
@@ -90,6 +59,7 @@ public class InterfazZombieKiller extends JFrame {
 		cursorP = new ImageIcon(getClass().getResource("/img/Fondo/Cuchillo.png"));
 		cursorCuchillo = Toolkit.getDefaultToolkit().createCustomCursor(cursorP.getImage(), new Point(1, 1), "C2");
 		setCursor(miraM1911);
+
 		panelCampo = new PanelCamp(this);
 		panelMenu = new PanelMenu(this);
 		panelComoJugar = new PanelComoJugar(this);
@@ -99,6 +69,7 @@ public class InterfazZombieKiller extends JFrame {
 		add(panelMenu, BorderLayout.CENTER);
 
 		campo = new SurvivorCamp();
+
 		try {
 			campo.cargarPuntajes();
 		} catch (ClassNotFoundException e) {
@@ -106,7 +77,7 @@ public class InterfazZombieKiller extends JFrame {
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(this, "No se han encontrado puntajes anteriores");
 		}
-		setSize(campo.ANCHO_PANTALLA, campo.ALTO_PANTALLA);
+		setSize(Params.ANCHO_PANTALLA, Params.ALTO_PANTALLA);
 
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
@@ -125,12 +96,12 @@ public class InterfazZombieKiller extends JFrame {
 	 * Inicia una partida desde 0
 	 */
 	public void iniciarNuevaPartida() {
-		if (campo.getEstadoJuego() != SurvivorCamp.SIN_PARTIDA) {
+		if (campo.getEstadoJuego() != Params.SIN_PARTIDA) {
 			int respuesta = JOptionPane.showConfirmDialog(this,
 					"En este momento se encuentra en una partida, segudo que desea salir?", "Iniciar Nueva Partida",
 					JOptionPane.YES_NO_OPTION);
 			if (respuesta == JOptionPane.YES_OPTION) {
-				campo.setEstadoJuego(SurvivorCamp.SIN_PARTIDA);
+				campo.setEstadoJuego(Params.SIN_PARTIDA);
 				partidaIniciada();
 			}
 		} else {
@@ -147,7 +118,7 @@ public class InterfazZombieKiller extends JFrame {
 		Puntaje actual = campo.getRaizPuntajes();
 		campo = new SurvivorCamp();
 		campo.actualizarPuntajes(actual);
-		campo.setEstadoJuego(SurvivorCamp.EN_CURSO);
+		campo.setEstadoJuego(Params.EN_CURSO);
 		armaActual = campo.getPersonaje().getPrincipal();
 		panelCampo.actualizarMatador(campo.getPersonaje());
 		panelCampo.actualizarEquipada(armaActual);
@@ -190,8 +161,8 @@ public class InterfazZombieKiller extends JFrame {
 	public void cargarJuego() {
 		try {
 			Puntaje actuales = campo.getRaizPuntajes();
-			SurvivorCamp partida = campo.cargarPartida();
-			campo.setEstadoJuego(SurvivorCamp.SIN_PARTIDA);
+			ISurvivorCamp partida = campo.cargarPartida();
+			campo.setEstadoJuego(Params.SIN_PARTIDA);
 			campo = partida;
 			campo.actualizarPuntajes(actuales);
 			panelCampo.actualizarMatador(campo.getPersonaje());
@@ -202,7 +173,7 @@ public class InterfazZombieKiller extends JFrame {
 			cambiarPuntero();
 			panelMenu.setVisible(false);
 			panelCampo.setVisible(true);
-			campo.setEstadoJuego(campo.EN_CURSO);
+			campo.setEstadoJuego(Params.EN_CURSO);
 			add(panelCampo, BorderLayout.CENTER);
 			panelCampo.requestFocusInWindow();
 			HiloEnemigo hE = new HiloEnemigo(this, campo.getZombNodoCercano(), campo);
@@ -297,7 +268,7 @@ public class InterfazZombieKiller extends JFrame {
 	 */
 	public void pausarJuego() {
 		char estado = campo.pausarJuego();
-		if (estado == SurvivorCamp.PAUSADO) {
+		if (estado == Params.PAUSADO) {
 			terminarGemi2();
 			panelMenu.setVisible(true);
 			panelCampo.setVisible(false);
@@ -388,7 +359,7 @@ public class InterfazZombieKiller extends JFrame {
 		terminarGemi2();
 		reproducir("sirena");
 		campo.actualizarRondaActual((byte) nivel);
-		campo.setEstadoJuego(SurvivorCamp.INICIANDO_RONDA);
+		campo.setEstadoJuego(Params.INICIANDO_RONDA);
 		panelCampo.actualizarRonda();
 	}
 

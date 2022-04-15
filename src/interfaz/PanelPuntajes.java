@@ -11,14 +11,13 @@ import java.awt.event.MouseListener;
 import java.net.URL;
 import java.util.ArrayList;
 
-import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import mundo.Puntaje;
+import mundo.puntajes.Puntaje;
 
 public class PanelPuntajes extends JPanel implements ActionListener {
 

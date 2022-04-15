@@ -1,20 +1,20 @@
 package hilo;
 
 import interfaz.InterfazZombieKiller;
-import mundo.Boss;
-import mundo.Caminante;
-import mundo.Enemigo;
-import mundo.Rastrero;
-import mundo.SurvivorCamp;
-import mundo.Zombie;
+import mundo.atacantes.Caminante;
+import mundo.atacantes.Enemigo;
+import mundo.atacantes.Rastrero;
+import mundo.campo.ISurvivorCamp;
+import mundo.atacantes.Zombie;
+import mundo.utils.Params;
 
 public class HiloEnemigo extends Thread {
 
 	private InterfazZombieKiller principal;
 	private Zombie nodoCercano;
-	private SurvivorCamp campo;
+	private ISurvivorCamp campo;
 
-	public HiloEnemigo(InterfazZombieKiller principal, Zombie nodoCercano, SurvivorCamp campo) {
+	public HiloEnemigo(InterfazZombieKiller principal, Zombie nodoCercano, ISurvivorCamp campo) {
 		this.principal = principal;
 		this.nodoCercano = nodoCercano;
 		this.campo = campo;
@@ -23,7 +23,7 @@ public class HiloEnemigo extends Thread {
 	@Override
 	public void run() {
 		try {
-			while (campo.getEstadoJuego() != SurvivorCamp.SIN_PARTIDA) {
+			while (campo.getEstadoJuego() != Params.SIN_PARTIDA) {
 				Zombie enMovimiento = nodoCercano.getAtras();
 				while (!enMovimiento.getEstadoActual().equals(Zombie.NODO)) {
 					String estado = enMovimiento.ataco();
@@ -65,7 +65,7 @@ public class HiloEnemigo extends Thread {
 					}
 					enMovimiento = enMovimiento.getAtras();
 				}
-				while (campo.getEstadoJuego() == SurvivorCamp.PAUSADO) {
+				while (campo.getEstadoJuego() == Params.PAUSADO) {
 					sleep(500);
 				}
 				// System.out.println("Corre el hilo de los enemigos");
