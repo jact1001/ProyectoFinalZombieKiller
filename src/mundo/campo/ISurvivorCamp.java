@@ -1,6 +1,11 @@
 package mundo.campo;
 
-import mundo.*;
+import mundo.atacantes.Boss;
+import mundo.atacantes.Enemigo;
+import mundo.atacantes.Zombie;
+import mundo.personaje.Personaje;
+import mundo.puntajes.Puntaje;
+import mundo.utils.NombreInvalidoException;
 
 import java.io.*;
 import java.util.ArrayList;

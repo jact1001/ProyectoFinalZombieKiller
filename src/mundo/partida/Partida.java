@@ -1,7 +1,11 @@
 package mundo.partida;
 
-import mundo.*;
+import mundo.armas.Arma;
+import mundo.armas.Cuchillo;
+import mundo.atacantes.*;
 import mundo.campo.SurvivorCamp;
+import mundo.personaje.Personaje;
+import mundo.utils.DatosErroneosException;
 import mundo.utils.Params;
 
 import java.io.*;

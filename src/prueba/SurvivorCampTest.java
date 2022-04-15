@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import junit.framework.TestCase;
-import mundo.Puntaje;
-import mundo.Zombie;
+import mundo.puntajes.Puntaje;
+import mundo.atacantes.Zombie;
 import mundo.campo.SurvivorCamp;
 
 public class SurvivorCampTest extends TestCase{

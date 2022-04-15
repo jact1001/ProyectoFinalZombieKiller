@@ -1,9 +1,14 @@
 package mundo.campo;
 
-import mundo.*;
 import mundo.armas.Armas;
+import mundo.atacantes.Boss;
+import mundo.atacantes.Enemigo;
+import mundo.atacantes.Zombie;
 import mundo.partida.Partida;
-import mundo.puntaje.Puntajes;
+import mundo.personaje.Personaje;
+import mundo.puntajes.Puntaje;
+import mundo.puntajes.Puntajes;
+import mundo.utils.NombreInvalidoException;
 import mundo.utils.Utils;
 
 import java.io.*;
@@ -331,7 +336,7 @@ public class SurvivorCamp implements ISurvivorCamp {
 	 * @param nombrePlayer
 	 * @throws NombreInvalidoException
 	 */
-	public void verificarNombre(String nombrePlayer) throws NombreInvalidoException{
+	public void verificarNombre(String nombrePlayer) throws NombreInvalidoException {
 		utils.verificarNombre(nombrePlayer);
 	}
 }

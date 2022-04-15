@@ -1,7 +1,5 @@
 package mundo.utils;
 
-import mundo.NombreInvalidoException;
-
 public class Utils {
 
     /**

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.0" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
   realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <interface id="1" language="java" name="mundo.SerViviente" project="ProyectoFinalZombieKiller" 
+  <interface id="1" language="java" name="mundo.utils.SerViviente" project="ProyectoFinalZombieKiller"
     file="/ProyectoFinalZombieKiller/src/mundo/SerViviente.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="562" y="788"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -10,7 +10,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="2" language="java" name="mundo.Boss" project="ProyectoFinalZombieKiller" 
+  <class id="2" language="java" name="mundo.atacantes.Boss" project="ProyectoFinalZombieKiller"
     file="/ProyectoFinalZombieKiller/src/mundo/Boss.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="360" y="187"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -19,7 +19,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="mundo.NombreInvalidoException" project="ProyectoFinalZombieKiller" 
+  <class id="3" language="java" name="mundo.utils.NombreInvalidoException" project="ProyectoFinalZombieKiller"
     file="/ProyectoFinalZombieKiller/src/mundo/NombreInvalidoException.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="78" width="173" x="341" y="-130"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -28,7 +28,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="mundo.Remington" project="ProyectoFinalZombieKiller" 
+  <class id="4" language="java" name="mundo.armas.Remington" project="ProyectoFinalZombieKiller"
     file="/ProyectoFinalZombieKiller/src/mundo/Remington.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="215" y="1493"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -37,7 +37,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="mundo.M1911" project="ProyectoFinalZombieKiller" 
+  <class id="5" language="java" name="mundo.armas.M1911" project="ProyectoFinalZombieKiller"
     file="/ProyectoFinalZombieKiller/src/mundo/M1911.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="215" y="1681"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -46,7 +46,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="mundo.Cuchillo" project="ProyectoFinalZombieKiller" 
+  <class id="6" language="java" name="mundo.armas.Cuchillo" project="ProyectoFinalZombieKiller"
     file="/ProyectoFinalZombieKiller/src/mundo/Cuchillo.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="432" y="1103"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -55,7 +55,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="mundo.DatosErroneosException" project="ProyectoFinalZombieKiller" 
+  <class id="7" language="java" name="mundo.utils.DatosErroneosException" project="ProyectoFinalZombieKiller"
     file="/ProyectoFinalZombieKiller/src/mundo/DatosErroneosException.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="96" width="167" x="554" y="-130"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -64,7 +64,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="mundo.Personaje" project="ProyectoFinalZombieKiller" 
+  <class id="8" language="java" name="mundo.personaje.Personaje" project="ProyectoFinalZombieKiller"
     file="/ProyectoFinalZombieKiller/src/mundo/Personaje.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="842" y="1243"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -73,7 +73,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="mundo.Caminante" project="ProyectoFinalZombieKiller" 
+  <class id="9" language="java" name="mundo.atacantes.Caminante" project="ProyectoFinalZombieKiller"
     file="/ProyectoFinalZombieKiller/src/mundo/Caminante.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="112" y="895"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -82,7 +82,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="mundo.Arma" project="ProyectoFinalZombieKiller" 
+  <class id="10" language="java" name="mundo.armas.Arma" project="ProyectoFinalZombieKiller"
     file="/ProyectoFinalZombieKiller/src/mundo/Arma.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="223" y="1231"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -91,7 +91,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="11" language="java" name="mundo.SeMueveEnZigzag" project="ProyectoFinalZombieKiller" 
+  <interface id="11" language="java" name="mundo.atacantes.SeMueveEnZigzag" project="ProyectoFinalZombieKiller"
     file="/ProyectoFinalZombieKiller/src/mundo/SeMueveEnZigzag.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="152" y="614"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -109,7 +109,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="mundo.ComparadorPuntajePorNombre" project="ProyectoFinalZombieKiller" 
+  <class id="13" language="java" name="mundo.utils.ComparadorPuntajePorNombre" project="ProyectoFinalZombieKiller"
     file="/ProyectoFinalZombieKiller/src/mundo/ComparadorPuntajePorNombre.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="96" width="204" x="761" y="-130"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -118,7 +118,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="mundo.Enemigo" project="ProyectoFinalZombieKiller" 
+  <class id="14" language="java" name="mundo.atacantes.Enemigo" project="ProyectoFinalZombieKiller"
     file="/ProyectoFinalZombieKiller/src/mundo/Enemigo.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="356" y="722"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -127,7 +127,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="mundo.Rastrero" project="ProyectoFinalZombieKiller" 
+  <class id="15" language="java" name="mundo.atacantes.Rastrero" project="ProyectoFinalZombieKiller"
     file="/ProyectoFinalZombieKiller/src/mundo/Rastrero.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="579" y="402"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -136,7 +136,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="mundo.Granada" project="ProyectoFinalZombieKiller" 
+  <class id="16" language="java" name="mundo.armas.Granada" project="ProyectoFinalZombieKiller"
     file="/ProyectoFinalZombieKiller/src/mundo/Granada.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="438" y="1266"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -145,7 +145,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="17" language="java" name="mundo.Zombie" project="ProyectoFinalZombieKiller" 
+  <class id="17" language="java" name="mundo.atacantes.Zombie" project="ProyectoFinalZombieKiller"
     file="/ProyectoFinalZombieKiller/src/mundo/Zombie.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="806" y="635"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -154,7 +154,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="18" language="java" name="mundo.ArmaConMunicion" project="ProyectoFinalZombieKiller" 
+  <interface id="18" language="java" name="mundo.armas.ArmaConMunicion" project="ProyectoFinalZombieKiller"
     file="/ProyectoFinalZombieKiller/src/mundo/ArmaConMunicion.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="613" y="1337"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -163,7 +163,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="19" language="java" name="mundo.ArmaDeFuego" project="ProyectoFinalZombieKiller" 
+  <class id="19" language="java" name="mundo.armas.ArmaDeFuego" project="ProyectoFinalZombieKiller"
     file="/ProyectoFinalZombieKiller/src/mundo/ArmaDeFuego.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="444" y="1619"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -172,7 +172,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="mundo.Puntaje" project="ProyectoFinalZombieKiller" 
+  <class id="20" language="java" name="mundo.puntajes.Puntaje" project="ProyectoFinalZombieKiller"
     file="/ProyectoFinalZombieKiller/src/mundo/Puntaje.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="777" y="141"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
