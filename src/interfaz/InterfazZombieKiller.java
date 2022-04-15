@@ -26,51 +26,18 @@ import mundo.Zombie;
 
 public class InterfazZombieKiller extends JFrame {
 
-	/**
-	 * Hilo que reproduce el sonido de los zombies
-	 */
 	private HiloSonido sonidoFondo;
-	/**
-	 * Campo de juego que contiene a todo el mundo
-	 */
 	private SurvivorCamp campo;
-	/**
-	 * Arma que el jugador tiene equipada
-	 */
 	private ArmaDeFuego armaActual;
-	/**
-	 * Panel del menú principal cualquier botón muestra otro panel
-	 * representatitvo a él
-	 */
+
 	private PanelMenu panelMenu;
-	/**
-	 * Panel del campo de juego
-	 */
 	private PanelCamp panelCampo;
-	/**
-	 * Panel que muestra las instrucciones de juego Muestra las estadísticas de
-	 * las armas
-	 */
 	private PanelComoJugar panelComoJugar;
-	/**
-	 * Panel que muestra los puntajes de los jugadores
-	 */
 	private PanelPuntajes panelPuntajes;
-	/**
-	 * Panel que muestra los créditos de las personas que participaron
-	 */
 	private PanelCreditos panelCreditos;
-	/**
-	 * Cursor de la mira de la pistola
-	 */
+
 	private Cursor miraM1911;
-	/**
-	 * Cursor de la mira de la escopeta
-	 */
 	private Cursor miraRemington;
-	/**
-	 * Cursor temporal del cuchillo
-	 */
 	private Cursor cursorCuchillo;
 
 	/**
@@ -80,9 +47,9 @@ public class InterfazZombieKiller extends JFrame {
 	public InterfazZombieKiller() {
 		BorderLayout custom = new BorderLayout();
 		setLayout(custom);
-		ImageIcon laterales = new ImageIcon(getClass().getResource("/img/Fondo/iconozombie.png"));
-		ImageIcon fondo = new ImageIcon(getClass().getResource("/img/Fondo/fondoMenu.png"));
 
+		new ImageIcon(getClass().getResource("/img/Fondo/iconozombie.png"));
+		new ImageIcon(getClass().getResource("/img/Fondo/fondoMenu.png"));
 		ImageIcon cursorP = new ImageIcon(getClass().getResource("/img/Fondo/mira1p.png"));
 		miraM1911 = Toolkit.getDefaultToolkit().createCustomCursor(cursorP.getImage(), new Point(16, 16), "C");
 		cursorP = new ImageIcon(getClass().getResource("/img/Fondo/mira1.png"));
@@ -90,6 +57,7 @@ public class InterfazZombieKiller extends JFrame {
 		cursorP = new ImageIcon(getClass().getResource("/img/Fondo/Cuchillo.png"));
 		cursorCuchillo = Toolkit.getDefaultToolkit().createCustomCursor(cursorP.getImage(), new Point(1, 1), "C2");
 		setCursor(miraM1911);
+
 		panelCampo = new PanelCamp(this);
 		panelMenu = new PanelMenu(this);
 		panelComoJugar = new PanelComoJugar(this);
@@ -99,6 +67,7 @@ public class InterfazZombieKiller extends JFrame {
 		add(panelMenu, BorderLayout.CENTER);
 
 		campo = new SurvivorCamp();
+
 		try {
 			campo.cargarPuntajes();
 		} catch (ClassNotFoundException e) {
