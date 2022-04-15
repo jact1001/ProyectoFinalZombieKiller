@@ -21,8 +21,8 @@ import mundo.Boss;
 import mundo.NombreInvalidoException;
 import mundo.Puntaje;
 import mundo.Remington;
-import mundo.SurvivorCamp;
 import mundo.Zombie;
+import mundo.campo.SurvivorCamp;
 
 public class InterfazZombieKiller extends JFrame {
 

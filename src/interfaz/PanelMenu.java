@@ -21,7 +21,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
-import mundo.SurvivorCamp;
+import mundo.campo.SurvivorCamp;
 
 public class PanelMenu extends JPanel implements KeyListener, ActionListener, MouseListener {
 

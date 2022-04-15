@@ -1,7 +1,7 @@
 package hilo;
 
 import interfaz.InterfazZombieKiller;
-import mundo.SurvivorCamp;
+import mundo.campo.SurvivorCamp;
 import mundo.Zombie;
 
 public class HiloGeneradorDeZombies extends Thread {

@@ -18,6 +18,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.tools.Tool;
 
 import mundo.*;
+import mundo.campo.SurvivorCamp;
 
 public class PanelCamp extends JPanel implements MouseListener, KeyListener {
 

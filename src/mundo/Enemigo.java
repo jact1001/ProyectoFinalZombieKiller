@@ -1,5 +1,7 @@
 package mundo;
 
+import mundo.campo.SurvivorCamp;
+
 import java.util.Formatter;
 
 public abstract class Enemigo implements SerViviente{

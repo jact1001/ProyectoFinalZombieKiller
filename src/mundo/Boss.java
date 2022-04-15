@@ -1,5 +1,7 @@
 package mundo;
 
+import mundo.campo.SurvivorCamp;
+
 public class Boss extends Enemigo implements SeMueveEnZigzag {
 
 	/**
@@ -99,7 +101,7 @@ public class Boss extends Enemigo implements SeMueveEnZigzag {
 			if (getPosY() > POS_ATAQUE)
 				setEstadoActual(ATACANDO);
 			else {
-				if(posHorizontal>SurvivorCamp.ANCHO_PANTALLA -ANCHO_IMAGEN || posHorizontal<0)
+				if(posHorizontal> SurvivorCamp.ANCHO_PANTALLA -ANCHO_IMAGEN || posHorizontal<0)
 					moverEnDireccion();
 				posHorizontal = posHorizontal + direccionX;
 				setPosY(getPosY() + direccionY);

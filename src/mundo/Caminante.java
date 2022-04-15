@@ -1,5 +1,7 @@
 package mundo;
 
+import mundo.campo.SurvivorCamp;
+
 public class Caminante extends Zombie implements SeMueveEnZigzag {
 
 	public static final String GRUNIENDO = "gruñendo";

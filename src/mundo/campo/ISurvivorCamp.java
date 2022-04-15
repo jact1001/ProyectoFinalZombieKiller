@@ -208,7 +208,7 @@ interface ISurvivorCamp extends Cloneable {
 	 *             en caso de que ocurra un problema al guardar el puntaje
 	 *             serializado
 	 */
-	void doAniadirMejoresPuntajes(String nombreJugador, Personaje personaje) throws IOException;
+	void aniadirMejoresPuntajes(String nombreJugador) throws IOException;
 
 	/**
 	 * ordena el arreglo con corde a la cantidad de kill con tiros a la cabeza
