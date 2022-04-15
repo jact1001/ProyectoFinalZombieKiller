@@ -1,6 +1,7 @@
 package mundo;
 
 import mundo.campo.SurvivorCamp;
+import mundo.utils.Params;
 
 import java.util.Formatter;
 
@@ -147,7 +148,7 @@ public abstract class Enemigo implements SerViviente{
 	 * @return posAleatoria
 	 */
 	protected short posAleatoriaX() {
-		int posAleatoria = (int) (Math.random() * SurvivorCamp.ANCHO_PANTALLA/3) + SurvivorCamp.ANCHO_PANTALLA/3 - 75;
+		int posAleatoria = (int) (Math.random() * Params.ANCHO_PANTALLA/3) + Params.ANCHO_PANTALLA/3 - 75;
 		return (short) posAleatoria;
 	}
 	

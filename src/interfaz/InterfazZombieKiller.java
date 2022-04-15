@@ -22,12 +22,14 @@ import mundo.NombreInvalidoException;
 import mundo.Puntaje;
 import mundo.Remington;
 import mundo.Zombie;
+import mundo.campo.ISurvivorCamp;
 import mundo.campo.SurvivorCamp;
+import mundo.utils.Params;
 
 public class InterfazZombieKiller extends JFrame {
 
 	private HiloSonido sonidoFondo;
-	private SurvivorCamp campo;
+	private ISurvivorCamp campo;
 	private ArmaDeFuego armaActual;
 
 	private PanelMenu panelMenu;
@@ -75,7 +77,7 @@ public class InterfazZombieKiller extends JFrame {
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(this, "No se han encontrado puntajes anteriores");
 		}
-		setSize(campo.ANCHO_PANTALLA, campo.ALTO_PANTALLA);
+		setSize(Params.ANCHO_PANTALLA, Params.ALTO_PANTALLA);
 
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
@@ -94,12 +96,12 @@ public class InterfazZombieKiller extends JFrame {
 	 * Inicia una partida desde 0
 	 */
 	public void iniciarNuevaPartida() {
-		if (campo.getEstadoJuego() != SurvivorCamp.SIN_PARTIDA) {
+		if (campo.getEstadoJuego() != Params.SIN_PARTIDA) {
 			int respuesta = JOptionPane.showConfirmDialog(this,
 					"En este momento se encuentra en una partida, segudo que desea salir?", "Iniciar Nueva Partida",
 					JOptionPane.YES_NO_OPTION);
 			if (respuesta == JOptionPane.YES_OPTION) {
-				campo.setEstadoJuego(SurvivorCamp.SIN_PARTIDA);
+				campo.setEstadoJuego(Params.SIN_PARTIDA);
 				partidaIniciada();
 			}
 		} else {
@@ -116,7 +118,7 @@ public class InterfazZombieKiller extends JFrame {
 		Puntaje actual = campo.getRaizPuntajes();
 		campo = new SurvivorCamp();
 		campo.actualizarPuntajes(actual);
-		campo.setEstadoJuego(SurvivorCamp.EN_CURSO);
+		campo.setEstadoJuego(Params.EN_CURSO);
 		armaActual = campo.getPersonaje().getPrincipal();
 		panelCampo.actualizarMatador(campo.getPersonaje());
 		panelCampo.actualizarEquipada(armaActual);
@@ -159,8 +161,8 @@ public class InterfazZombieKiller extends JFrame {
 	public void cargarJuego() {
 		try {
 			Puntaje actuales = campo.getRaizPuntajes();
-			SurvivorCamp partida = campo.cargarPartida();
-			campo.setEstadoJuego(SurvivorCamp.SIN_PARTIDA);
+			ISurvivorCamp partida = campo.cargarPartida();
+			campo.setEstadoJuego(Params.SIN_PARTIDA);
 			campo = partida;
 			campo.actualizarPuntajes(actuales);
 			panelCampo.actualizarMatador(campo.getPersonaje());
@@ -171,7 +173,7 @@ public class InterfazZombieKiller extends JFrame {
 			cambiarPuntero();
 			panelMenu.setVisible(false);
 			panelCampo.setVisible(true);
-			campo.setEstadoJuego(campo.EN_CURSO);
+			campo.setEstadoJuego(Params.EN_CURSO);
 			add(panelCampo, BorderLayout.CENTER);
 			panelCampo.requestFocusInWindow();
 			HiloEnemigo hE = new HiloEnemigo(this, campo.getZombNodoCercano(), campo);
@@ -266,7 +268,7 @@ public class InterfazZombieKiller extends JFrame {
 	 */
 	public void pausarJuego() {
 		char estado = campo.pausarJuego();
-		if (estado == SurvivorCamp.PAUSADO) {
+		if (estado == Params.PAUSADO) {
 			terminarGemi2();
 			panelMenu.setVisible(true);
 			panelCampo.setVisible(false);
@@ -357,7 +359,7 @@ public class InterfazZombieKiller extends JFrame {
 		terminarGemi2();
 		reproducir("sirena");
 		campo.actualizarRondaActual((byte) nivel);
-		campo.setEstadoJuego(SurvivorCamp.INICIANDO_RONDA);
+		campo.setEstadoJuego(Params.INICIANDO_RONDA);
 		panelCampo.actualizarRonda();
 	}
 

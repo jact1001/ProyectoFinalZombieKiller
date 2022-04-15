@@ -5,16 +5,18 @@ import mundo.Boss;
 import mundo.Caminante;
 import mundo.Enemigo;
 import mundo.Rastrero;
+import mundo.campo.ISurvivorCamp;
 import mundo.campo.SurvivorCamp;
 import mundo.Zombie;
+import mundo.utils.Params;
 
 public class HiloBoss extends Thread{
 	
 		private InterfazZombieKiller principal;
 		private Boss jefe;
-		private SurvivorCamp campo;
+		private ISurvivorCamp campo;
 
-		public HiloBoss(InterfazZombieKiller principal, Boss jefe, SurvivorCamp campo) {
+		public HiloBoss(InterfazZombieKiller principal, Boss jefe, ISurvivorCamp campo) {
 			this.principal = principal;
 			this.jefe = jefe;
 			this.campo = campo;
@@ -24,7 +26,7 @@ public class HiloBoss extends Thread{
 		public void run() {
 			try {
 			int valorJefeCambiaPosicion = 0;
-			while (campo.getEstadoJuego()!=SurvivorCamp.SIN_PARTIDA) {
+			while (campo.getEstadoJuego()!= Params.SIN_PARTIDA) {
 					String estado = jefe.ataco();
 					if (estado.equals(Enemigo.ATACANDO)) {
 							if(jefe.getFrameActual()==19)
@@ -32,7 +34,7 @@ public class HiloBoss extends Thread{
 							else if(jefe.getFrameActual()==21)
 								campo.enemigoTerminaSuGolpe(jefe);
 					}
-				while (campo.getEstadoJuego()==SurvivorCamp.PAUSADO){
+				while (campo.getEstadoJuego()==Params.PAUSADO){
 					sleep(500);
 				}
 				sleep(jefe.getLentitud());

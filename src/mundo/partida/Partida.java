@@ -2,34 +2,24 @@ package mundo.partida;
 
 import mundo.*;
 import mundo.campo.SurvivorCamp;
+import mundo.utils.Params;
 
 import java.io.*;
 
 public class Partida {
 
-    public static final char PAUSADO = 'P';
-    public static final char EN_CURSO = 'J';
-    public static final char SIN_PARTIDA = 'N';
-
     private char estadoJuego;
-
-    public static final int ANCHO_PANTALLA = 1000;
-
     private int cantidadZombiesGenerados;
-
-    public static final int NUMERO_ZOMBIES_RONDA = 16;
-
     private byte rondaActual = 0;
 
     private Personaje personaje;
-
     private Zombie zombNodoLejano;
     private Zombie zombNodoCercano;
     private Boss jefe;
 
     public Partida() {
         personaje = new Personaje();
-        estadoJuego = SIN_PARTIDA;
+        estadoJuego = Params.SIN_PARTIDA;
         zombNodoLejano = new Caminante();
         zombNodoCercano = new Caminante();
         zombNodoLejano.setLentitud((short) 500);
@@ -100,10 +90,10 @@ public class Partida {
         File datosZombie = new File(carpeta.getAbsolutePath() + "/zombies.txt");
         BufferedReader bR = new BufferedReader(new FileReader(datosZombie));
         int ronda = 0;
-        if (personaje.getMatanza() % NUMERO_ZOMBIES_RONDA == 0)
-            ronda = personaje.getMatanza() / NUMERO_ZOMBIES_RONDA;
+        if (personaje.getMatanza() % Params.NUMERO_ZOMBIES_RONDA == 0)
+            ronda = personaje.getMatanza() / Params.NUMERO_ZOMBIES_RONDA;
         else
-            ronda = personaje.getMatanza() / NUMERO_ZOMBIES_RONDA + 1;
+            ronda = personaje.getMatanza() / Params.NUMERO_ZOMBIES_RONDA + 1;
         String lineaActual = bR.readLine();
         int contadorZombiesEnPantalla = 0;
         Zombie masCercano = null;
@@ -146,8 +136,8 @@ public class Partida {
             lineaActual = bR.readLine();
         }
         bR.close();
-        int zombiesExcedidos = contadorZombiesEnPantalla + (personaje.getMatanza() % NUMERO_ZOMBIES_RONDA)
-                - NUMERO_ZOMBIES_RONDA;
+        int zombiesExcedidos = contadorZombiesEnPantalla + (personaje.getMatanza() % Params.NUMERO_ZOMBIES_RONDA)
+                - Params.NUMERO_ZOMBIES_RONDA;
         if (zombiesExcedidos > 0)
             throw new DatosErroneosException(zombiesExcedidos);
         else {
@@ -269,7 +259,7 @@ public class Partida {
      */
     private void verificarDatosZombie(int posX, int posY, String estadoActual, byte frameActual)
             throws DatosErroneosException {
-        if (posX > ANCHO_PANTALLA - Zombie.ANCHO_IMAGEN || posX < 0 || posY > Zombie.POS_ATAQUE
+        if (posX > Params.ANCHO_PANTALLA - Zombie.ANCHO_IMAGEN || posX < 0 || posY > Zombie.POS_ATAQUE
                 || posY < Zombie.POS_INICIAL || frameActual > 31
                 || (!estadoActual.equals(Zombie.CAMINANDO) && !estadoActual.equals(Zombie.MURIENDO_INCENDIADO)
                 && !estadoActual.equals(Zombie.MURIENDO) && !estadoActual.equals(Zombie.ATACANDO)))
@@ -373,7 +363,7 @@ public class Partida {
                 seEncontro = true;
                 if (jefe.getEstadoActual().equals(Boss.DERROTADO)) {
                     personaje.aumentarScore(100);
-                    estadoJuego = SIN_PARTIDA;
+                    estadoJuego = Params.SIN_PARTIDA;
                 }
             }
         }
@@ -414,7 +404,7 @@ public class Partida {
                 leDio = true;
                 if (jefe.getEstadoActual().equals(Boss.DERROTADO)) {
                     personaje.aumentarScore(20 + jefe.getSalud() * (-20));
-                    estadoJuego = SIN_PARTIDA;
+                    estadoJuego = Params.SIN_PARTIDA;
                 }
             }
         return leDio;
@@ -428,7 +418,7 @@ public class Partida {
         personaje.setEnsangrentado(true);
         personaje.setSalud((byte) (personaje.getSalud() - 1));
         if (personaje.getSalud() <= 0) {
-            estadoJuego = SIN_PARTIDA;
+            estadoJuego = Params.SIN_PARTIDA;
         }
     }
 
@@ -489,10 +479,10 @@ public class Partida {
      * @return estado final
      */
     public char pausarJuego() {
-        if (estadoJuego == PAUSADO)
-            estadoJuego = EN_CURSO;
+        if (estadoJuego == Params.PAUSADO)
+            estadoJuego = Params.EN_CURSO;
         else
-            estadoJuego = PAUSADO;
+            estadoJuego = Params.PAUSADO;
         return estadoJuego;
     }
 

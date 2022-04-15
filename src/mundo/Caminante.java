@@ -1,6 +1,7 @@
 package mundo;
 
 import mundo.campo.SurvivorCamp;
+import mundo.utils.Params;
 
 public class Caminante extends Zombie implements SeMueveEnZigzag {
 
@@ -63,7 +64,7 @@ public class Caminante extends Zombie implements SeMueveEnZigzag {
 			if (getPosY() > POS_ATAQUE) {
 				setEstadoActual(ATACANDO);
 			} else {
-				if (posHorizontal > SurvivorCamp.ANCHO_PANTALLA - ANCHO_IMAGEN || posHorizontal < 0)
+				if (posHorizontal > Params.ANCHO_PANTALLA - ANCHO_IMAGEN || posHorizontal < 0)
 					moverEnDireccion();
 				posHorizontal = posHorizontal + direccionX;
 				setPosY(getPosY() + direccionY);

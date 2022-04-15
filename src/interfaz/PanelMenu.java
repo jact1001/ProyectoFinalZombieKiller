@@ -22,6 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.border.Border;
 
 import mundo.campo.SurvivorCamp;
+import mundo.utils.Params;
 
 public class PanelMenu extends JPanel implements KeyListener, ActionListener, MouseListener {
 
@@ -113,7 +114,7 @@ public class PanelMenu extends JPanel implements KeyListener, ActionListener, Mo
 		Image Palabras = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/Fondo/fondoMenu.png"));
 		g.drawImage(Palabras, 0, 0, null);
 		
-		if(principal.getEstadoPartida()==SurvivorCamp.PAUSADO) {
+		if(principal.getEstadoPartida()== Params.PAUSADO) {
 			butContinuar.setEnabled(true);
 			butGuardar.setEnabled(true);
 		}
@@ -126,7 +127,7 @@ public class PanelMenu extends JPanel implements KeyListener, ActionListener, Mo
 	@Override
 	public void keyPressed(KeyEvent arg0) {
 //		System.out.println(arg0.getKeyCode());
-		if (arg0.getKeyCode() == 80 && principal.getEstadoPartida()==SurvivorCamp.PAUSADO)
+		if (arg0.getKeyCode() == 80 && principal.getEstadoPartida()==Params.PAUSADO)
 			principal.pausarJuego();
 	}
 

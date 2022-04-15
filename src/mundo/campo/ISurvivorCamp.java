@@ -5,7 +5,7 @@ import mundo.*;
 import java.io.*;
 import java.util.ArrayList;
 
-interface ISurvivorCamp extends Cloneable {
+public interface ISurvivorCamp extends Cloneable {
 
 	/**
 	 * obtiene el estado actual del juego
