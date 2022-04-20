@@ -42,8 +42,10 @@ public class PanelMenu extends JPanel implements KeyListener, ActionListener, Mo
 	private JButton butComoJugar;
 	private JButton butCreditos;
 	private JButton butPuntajes;
+	
+	private Button button;
 
-	public PanelMenu(InterfazZombieKiller interfazZombieKiller) {
+	public PanelMenu(InterfazZombieKiller interfazZombieKiller, IPanel Ipanel) {
 		setFocusable(true);
 		setLayout(new GridLayout(9, 2));
 		principal = interfazZombieKiller;
@@ -53,6 +55,9 @@ public class PanelMenu extends JPanel implements KeyListener, ActionListener, Mo
 		add(aux);
 		aux = new JLabel();
 		add(aux);
+		
+		//button = Ipanel.createButton();
+		//button.configurarBoton(butCargar, null, CARGAR);
 		
 		aux = new JLabel();
 		add(aux);
@@ -97,15 +102,13 @@ public class PanelMenu extends JPanel implements KeyListener, ActionListener, Mo
 		add(butCreditos);
 	}
 
-	public void configurarBoton (JButton aEditar, URL rutaImagen, String comando) {
-		aEditar.setBorder(null);
-		aEditar.setContentAreaFilled(false);
-		aEditar.setActionCommand(comando);
-		ImageIcon letras = new ImageIcon(rutaImagen);
-		aEditar.setIcon(letras);
-		aEditar.addActionListener(this);
-		aEditar.addMouseListener(this);
-	}
+	
+	  public void configurarBoton (JButton aEditar, URL rutaImagen, String comando)
+	  { aEditar.setBorder(null); aEditar.setContentAreaFilled(false);
+	  aEditar.setActionCommand(comando); ImageIcon letras = new
+	  ImageIcon(rutaImagen); aEditar.setIcon(letras);
+	  aEditar.addActionListener(this); aEditar.addMouseListener(this); }
+	 
 	
 	@Override
 	protected void paintComponent(Graphics g) {
@@ -246,4 +249,5 @@ public class PanelMenu extends JPanel implements KeyListener, ActionListener, Mo
 		// TODO Auto-generated method stub
 		
 	}
+
 }
