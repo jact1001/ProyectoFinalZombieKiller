@@ -20,12 +20,16 @@ public class Partida {
     private Zombie zombNodoLejano;
     private Zombie zombNodoCercano;
     private Boss jefe;
+    private Caminante caminante;
 
     public Partida() {
         personaje = new Personaje();
         estadoJuego = Params.SIN_PARTIDA;
-        zombNodoLejano = new Caminante();
-        zombNodoCercano = new Caminante();
+        caminante = new Caminante();
+        //zombNodoLejano = new Caminante();
+        //zombNodoCercano = new Caminante();
+        zombNodoLejano = (Zombie) caminante.clonar();
+        zombNodoCercano = (Zombie) caminante.clonar();
         zombNodoLejano.setLentitud((short) 500);
         zombNodoLejano.setAlFrente(zombNodoCercano);
         zombNodoCercano.setAtras(zombNodoLejano);
@@ -216,7 +220,9 @@ public class Partida {
      */
     private void cargaBossSiExiste(int ronda, byte salud) {
         if (ronda == 10) {
-            jefe = new Boss(salud);
+            //jefe = new Boss(salud);
+            jefe = (Boss) jefe.clonar();
+            jefe.setSalud(salud);
             zombNodoCercano.setAtras(zombNodoLejano);
             zombNodoLejano.setAlFrente(zombNodoCercano);
         }

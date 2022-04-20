@@ -131,4 +131,10 @@ public class Caminante extends Zombie implements SeMueveEnZigzag {
 		return posHorizontal;
 	}
 
+	@Override
+	public Enemigo clonar() {
+		// TODO Auto-generated method stub
+		return new Caminante();
+	}
+
 }

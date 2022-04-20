@@ -175,4 +175,6 @@ public abstract class Enemigo implements SerViviente {
 		Formatter formato = new Formatter();
 		return "/img/" + getClass().getSimpleName() + "/" + estadoActual + "/" + formato.format("%02d",getFrameActual()) + ".png";
 	}
+	//Metodo clonar prototype
+	public abstract Enemigo clonar();
 }
