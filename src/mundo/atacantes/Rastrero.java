@@ -4,6 +4,11 @@ import mundo.armas.Remington;
 
 public class Rastrero extends Zombie {
 
+	public Rastrero() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * posición en el ejeX
 	 */
@@ -85,6 +90,12 @@ public class Rastrero extends Zombie {
 	@Override
 	public int getPosX() {
 		return posX;
+	}
+
+	@Override
+	public Enemigo clonar() {
+		// TODO Auto-generated method stub
+		return new Rastrero();
 	}
 
 }
