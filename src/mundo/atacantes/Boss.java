@@ -148,5 +148,10 @@ public class Boss extends Enemigo implements SeMueveEnZigzag {
 	public int getDireccionY() {
 		return direccionY;
 	}
+	@Override
+	public Enemigo clonar() {
+		// TODO Auto-generated method stub
+		return new Boss();
+	}
 
 }

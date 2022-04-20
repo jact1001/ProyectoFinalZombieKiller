@@ -41,12 +41,14 @@ public class InterfazZombieKiller extends JFrame {
 	private Cursor miraM1911;
 	private Cursor miraRemington;
 	private Cursor cursorCuchillo;
+	
+	private static InterfazZombieKiller instance;
 
 	/**
 	 * Constructor de la clase principal del juego Aquí se inicializan todos los
 	 * componentes necesarios para empezar a jugar
 	 */
-	public InterfazZombieKiller() {
+	private InterfazZombieKiller() {
 		BorderLayout custom = new BorderLayout();
 		setLayout(custom);
 
@@ -81,6 +83,13 @@ public class InterfazZombieKiller extends JFrame {
 
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
+	}
+	
+	public static InterfazZombieKiller getInstance() {
+		if (instance == null) {
+			instance = new InterfazZombieKiller();
+		}
+		return instance;
 	}
 
 	/**
@@ -205,11 +214,11 @@ public class InterfazZombieKiller extends JFrame {
 		panelCampo.repaint();
 	}
 
-	public static void main(String[] args) {
-		InterfazZombieKiller inter = new InterfazZombieKiller();
-		inter.setVisible(true);
-		inter.setLocationRelativeTo(null);
-	}
+	/*
+	 * public static void main(String[] args) { InterfazZombieKiller inter = new
+	 * InterfazZombieKiller(); inter.setVisible(true);
+	 * inter.setLocationRelativeTo(null); }
+	 */
 
 	/**
 	 * <pre></pre>
