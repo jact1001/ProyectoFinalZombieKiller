@@ -10,10 +10,11 @@ import java.net.URL;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-public class PanelComoJugar extends JPanel {
+public class PanelComoJugar extends JPanel implements IPanel {
 
 	private static final String SALIR = "Salir";
 	private PanelDatosCuriosos panelDatosC;
@@ -28,48 +29,28 @@ public class PanelComoJugar extends JPanel {
 		principal = inter;
 		panelDatosC = new PanelDatosCuriosos();
 		panelArmas = new PanelArmas(principal);
+		
 		butSalir = new JButton();
-		configurarBoton(butSalir, getClass().getResource("/img/Palabras/volver.png"), SALIR);
+		add(butSalir, BorderLayout.SOUTH);
 		butSalir.setActionCommand(SALIR);
+		
+		createButton(butSalir, getClass().getResource("/img/Palabras/volver.png"), SALIR, principal);
+	
 		JPanel aux = new JPanel ();
 		aux.setLayout(new BorderLayout());
 		aux.add(panelDatosC, BorderLayout.NORTH);
 		aux.add(panelArmas, BorderLayout.CENTER);
+		
 		scroll = new JScrollPane(aux);
 		scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		add(scroll, BorderLayout.CENTER);
-		add(butSalir, BorderLayout.SOUTH);
+		add(scroll, BorderLayout.CENTER);	
 	}
-	
-	public void configurarBoton (JButton aEditar, URL rutaImagen, String comando) {
-		aEditar.setBorder(null);
-		aEditar.setFocusable(false);
-		aEditar.setContentAreaFilled(false);
-		aEditar.setActionCommand(comando);
-		ImageIcon letras = new ImageIcon(rutaImagen);
-		aEditar.setIcon(letras);
-		aEditar.addMouseListener(new MouseListener() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-			}
-			@Override
-			public void mousePressed(MouseEvent e) {
-			}
-			@Override
-			public void mouseExited(MouseEvent e) {
-				ImageIcon iI = new ImageIcon(getClass().getResource("/img/Palabras/volver.png"));
-				butSalir.setIcon(iI);
-			}
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				ImageIcon iI = new ImageIcon(getClass().getResource("/img/Palabras/volver_p.png"));
-				butSalir.setIcon(iI);
-			}
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				principal.mostrarComoJugar();
-			}
-		});
+
+	@Override
+	public Button createButton(JButton aEditar, URL rutaImagen, String comando, JFrame inter) {
+		// TODO Auto-generated method stub
+		return new PanelComoJugarButtons(aEditar, rutaImagen, comando, inter);
 	}
+
 }
