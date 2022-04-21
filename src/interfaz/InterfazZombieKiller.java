@@ -42,9 +42,6 @@ public class InterfazZombieKiller extends JFrame {
 	private Cursor miraRemington;
 	private Cursor cursorCuchillo;
 	
-	private IPanel Ipanel;
-	private Button buttons;
-	
 	private static InterfazZombieKiller instance;
 
 	/**
@@ -86,7 +83,6 @@ public class InterfazZombieKiller extends JFrame {
 
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
-		
 	}
 	
 	public static InterfazZombieKiller getInstance() {
